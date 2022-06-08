@@ -25,6 +25,9 @@ app.use(express.urlencoded({extended: true}));
 const productRouter = require('./routes/productRouter');
 app.use('/products', productRouter);
 
+app.get('/', (req, res) => {
+  res.status(200).json({message: "Root Directory"})
+})
 
 /////////////
 //Server listener
