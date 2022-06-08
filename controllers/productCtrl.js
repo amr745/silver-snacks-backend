@@ -1,5 +1,14 @@
 const Product = require('../models/productSchema');
 
+const seed = async (req, res) => {
+  try {
+    await Product.deleteMany({});
+    res.json(await Product.create(productSeed))
+  } catch (error) {
+    res.status(400).json(error)
+  }
+};
+
 const index = async (req, res) => {
   try {
     res.json(await (await Product.find({})).reverse())
@@ -26,15 +35,15 @@ const update = async (req, res) => {
   }
 };
 
-//Create
-const create = async (req, res) => {
-  try {
-    console.log(req.body)
-    res.status(201).json(await Product.create(req.body))
-  } catch (error) {
-    res.status(400).json(error)
-  }
-};
+// //Create
+// const create = async (req, res) => {
+//   try {
+//     console.log(req.body)
+//     res.status(201).json(await Product.create(req.body))
+//   } catch (error) {
+//     res.status(400).json(error)
+//   }
+// };
 
 //Show
 const show = async (req, res) => {
@@ -50,6 +59,7 @@ module.exports = {
   index,
   delete: deleteProduct,
   update,
-  create,
+  seed,
+  // create,
   show
 };
