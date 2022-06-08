@@ -1,20 +1,48 @@
-const mongoose = require('mongoose');
+// Model
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const SALT_ROUNDS = 6;
 
-const userSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Please add a name"]
+const userSchema = new mongoose.Schema(
+  {
+    name: String,
+    email: {
+      type: String,
+      required: true,
+      lowercase: true,
+      unique: true,
+    },
+    password: String,
   },
-  email: {
-    type: String,
-    required: [true, "Please add an email"],
-    required: true
-  },
-  password: {
-    type: String,
-    required: [true, "Please enter in a password"]
-  },
-}, {timestamps: true});
+  {
+    timestamps: true,
+  }
+);
 
+userSchema.set("toJSON", {
+  transform: function (doc, ret) {
+    // remove the password property when serializing doc to JSON
+    delete ret.password;
+    return ret;
+  },
+});
 
-module.exports = mongoose.model("User", userSchema);
+userSchema.pre("save", function (next) {
+  const user = this;
+  if (!user.isModified("password")) return next();
+  // password has been changed - salt and hash it
+  bcrypt.hash(user.password, SALT_ROUNDS, function (err, hash) {
+    if (err) return next(err);
+    // replace the user provided password with the hash
+    user.password = hash;
+    next();
+  });
+});
+
+userSchema.methods.comparePassword = function(tryPassword, cb) { // cant use arrow function here
+  bcrypt.compare(tryPassword, this.password, cb);
+};
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

@@ -10,6 +10,8 @@ const connectDB = require('./config/connection');
 const logger = require('morgan');
 const cors = require('cors');
 const Product = require('./models/productSchema');
+const usersRouter = require("./routes/userRouter");
+
 
 /////////////
 //Middleware
@@ -17,7 +19,7 @@ const Product = require('./models/productSchema');
 app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 /////////////
 //Routes
@@ -25,8 +27,12 @@ app.use(express.urlencoded({extended: true}));
 const productRouter = require('./routes/productRouter');
 app.use('/products', productRouter);
 
+app.use("/users", usersRouter);
+// Mount our custom auth middleware to protect routes below it
+app.use(require("./config/auth"));
+
 app.get('/', (req, res) => {
-  res.status(200).json({message: "Root Directory"})
+  res.status(200).json({ message: "Root Directory" })
 })
 
 /////////////
