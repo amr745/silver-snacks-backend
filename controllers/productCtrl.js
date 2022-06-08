@@ -35,15 +35,6 @@ const update = async (req, res) => {
   }
 };
 
-// //Create
-// const create = async (req, res) => {
-//   try {
-//     console.log(req.body)
-//     res.status(201).json(await Product.create(req.body))
-//   } catch (error) {
-//     res.status(400).json(error)
-//   }
-// };
 
 //Show
 const show = async (req, res) => {
