@@ -17,6 +17,7 @@ const Products = require('./models/productSchema');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(logger('dev'));
+app.use(cors());
 
 /////////////
 //Routes
