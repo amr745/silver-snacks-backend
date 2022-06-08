@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const connectDB = require('./config/connection');
 const logger = require('morgan');
 const cors = require('cors');
-const Products = require('./models/productSchema');
+const Product = require('./models/productSchema');
 
 /////////////
 //Middleware
@@ -26,10 +26,10 @@ app.get('/', (req, res) => {
   res.status(200).json({message: "Root Directory"})
 });
 
-//Index route
+//Index
 app.get('/products', async (req, res) => {
   try {
-    res.json(await (await Products.find({})).reverse())
+    res.json(await (await Product.find({})).reverse())
   } catch (error) {
     res.status(400).json(error)
   }
@@ -38,7 +38,7 @@ app.get('/products', async (req, res) => {
 //Delete
 app.delete('/products/:id', async (req, res) => {
   try {
-    res.json(await Products.findByIdAndDelete(req.params.id))
+    res.json(await Product.findByIdAndDelete(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -47,7 +47,7 @@ app.delete('/products/:id', async (req, res) => {
 //Update
 app.put('/products/:id', async (req, res) => {
   try {
-    res.json(await Products.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+    res.json(await Product.findByIdAndUpdate(req.params.id, req.body, {new: true}))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -57,7 +57,7 @@ app.put('/products/:id', async (req, res) => {
 app.post('/products', async (req, res) => {
   try {
     console.log(req.body)
-    res.status(201).json(await Products.create(req.body))
+    res.status(201).json(await Product.create(req.body))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -66,7 +66,7 @@ app.post('/products', async (req, res) => {
 //Show
 app.get('/products/:id', async (req, res) => {
   try {
-    res.status(200).json(await Products.findById(req.params.id))
+    res.status(200).json(await Product.findById(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
