@@ -11,14 +11,12 @@ const logger = require('morgan');
 const cors = require('cors');
 const Products = require('./models/productSchema');
 
-
 /////////////
 //Middleware
 /////////////
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(logger('cors'));
-
+app.use(logger('dev'));
 
 /////////////
 //Routes
@@ -37,9 +35,9 @@ app.get('/products', async (req, res) => {
 })
 
 //Delete
-app.get('/products', async (req, res) => {
+app.delete('/products/:id', async (req, res) => {
   try {
-    res.json(await Products.findByIdAndRemove(req.params.id))
+    res.json(await Products.findByIdAndDelete(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
