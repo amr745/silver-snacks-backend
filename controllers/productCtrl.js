@@ -51,6 +51,5 @@ module.exports = {
   delete: deleteProduct,
   update,
   seed,
-  // create,
   show
 };
