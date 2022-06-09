@@ -4,7 +4,7 @@ const productData = require('../data/productData')
 const seed = async (req, res) => {
   try {
     await Product.deleteMany({});
-    res.json(await Product.create(productData))
+    res.status(201).json(await Product.create(productData))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -12,7 +12,7 @@ const seed = async (req, res) => {
 
 const index = async (req, res) => {
   try {
-    res.json(await (await Product.find({})).reverse())
+    res.status(200).json(await (await Product.find({})).reverse())
   } catch (error) {
     res.status(400).json(error)
   }
@@ -21,7 +21,7 @@ const index = async (req, res) => {
 //Delete
 const deleteProduct = async (req, res) => {
   try {
-    res.json(await Product.findByIdAndDelete(req.params.id))
+    res.status(204).json(await Product.findByIdAndDelete(req.params.id))
   } catch (error) {
     res.status(400).json(error)
   }
@@ -30,12 +30,11 @@ const deleteProduct = async (req, res) => {
 //Update
 const update = async (req, res) => {
   try {
-    res.json(await Product.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+    res.status(200).json(await Product.findByIdAndUpdate(req.params.id, req.body, {new: true}))
   } catch (error) {
     res.status(400).json(error)
   }
 };
-
 
 //Show
 const show = async (req, res) => {
@@ -45,7 +44,6 @@ const show = async (req, res) => {
     res.status(400).json(error)
   }
 };
-
 
 module.exports = {
   index,
