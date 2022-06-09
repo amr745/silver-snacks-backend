@@ -9,9 +9,8 @@ const PORT = process.env.PORT || 3001;
 const connectDB = require('./config/connection');
 const logger = require('morgan');
 const cors = require('cors');
-const Product = require('./models/productSchema');
-const usersRouter = require("./routes/userRouter");
 
+const usersRouter = require("./routes/userRouter");
 
 /////////////
 //Middleware
