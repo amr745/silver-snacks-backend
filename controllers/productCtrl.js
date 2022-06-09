@@ -1,9 +1,10 @@
 const Product = require('../models/productSchema');
+const productData = require('../data/productData')
 
 const seed = async (req, res) => {
   try {
     await Product.deleteMany({});
-    res.json(await Product.create(productSeed))
+    res.json(await Product.create(productData))
   } catch (error) {
     res.status(400).json(error)
   }
