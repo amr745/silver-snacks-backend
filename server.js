@@ -27,6 +27,12 @@ const productRouter = require('./routes/productRouter');
 app.use('/products', productRouter);
 
 app.use("/users", usersRouter);
+
+const cartRouter = require('./routes/cartRouter')
+app.use("/cart", cartRouter)
+
+const orderRouter = require('./routes/orderRouter');
+app.use("/order", orderRouter);
 // Mount our custom auth middleware to protect routes below it
 app.use(require("./config/auth"));
 
