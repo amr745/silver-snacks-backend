@@ -36,6 +36,7 @@ const login = async (req, res) => {
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
+    console.log(`UserInfo: ${user}`);
     return jwt.sign(
         { user }, // data payload
         SECRET,
