@@ -1,5 +1,5 @@
 const Cart = require('../models/cartSchema');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 //Update Cart
 const update = async (req, res) => {
@@ -23,8 +23,20 @@ const update = async (req, res) => {
     }
 };
 
+const deleteCartItem = async (req, res) => {
+    try {
+        res.status(204).json(await Cart.findByIdAndDelete(req.params.id));
+
+        } catch (error) {
+
+        console.log("delete err ", error);
+        res.status(400).json(error)
+    }
+};
+
 
 
 module.exports = {
     update,
+    deleteCartItem
 };

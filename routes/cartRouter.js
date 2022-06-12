@@ -4,5 +4,6 @@ const cartCtrl = require('../controllers/cartCtrl');
 
 //INDUCES
 router.put('/update', cartCtrl.update);
+router.delete('/:id', cartCtrl.deleteCartItem);
 
 module.exports = router;
