@@ -91,7 +91,7 @@ const productData = [
         description: "DELICIOUS FLAVOR: We get it: everyone has their own favorite chicken salad recipe, but StarKist Chicken Creations Chicken Salad pouches include savory dill relish, crisp celery, red peppers and a unique ingredient—convenience.",
     },
     {
-        name: "Wonderful Pistachios",
+        name: "Pistachios",
         price: 6.59,
         quantity: 7,
         img: "https://m.media-amazon.com/images/I/81vvSoE3qzL._SX679_PIbundle-9,TopRight,0,0_AA679SH20_.jpg",
