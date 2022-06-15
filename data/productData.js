@@ -39,7 +39,7 @@ const productData = [
         price: 20.82,
         quantity: 11,
         img: "https://m.media-amazon.com/images/I/81R8wpC7xML._SX679_PIbundle-8,TopRight,0,0_AA679SH20_.jpg",
-        description: "Since 1936 we've brought you the tastiest canned chili, made from choice ingredients and cooked to perfection. It's no wonder we're America's favorite chili from coast to coast",
+        description: "Since 1936 we've brought you the tastiest canned chili, made from choice ingredients and cooked to perfection. It's no wonder we're America's favorite chili from coast to coast. Animals were harmed in the making of this product.",
     },
     {
         name: "Peanut Butter",
