@@ -70,7 +70,7 @@ const productData = [
         description: "Variety pack includes 1 family size box of RITZ Original Crackers and 2 cans of Easy Cheese Cheddar Spray Cheese (packaging may vary)",
     },
     {
-        name: "PLANTERS Deluxe Whole Cashews",
+        name: "Whole Cashews",
         price: 9.40,
         quantity: 24,
         img: "https://m.media-amazon.com/images/I/61CWZr4mH7L._SY879_.jpg",
