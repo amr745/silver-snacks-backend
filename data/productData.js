@@ -84,13 +84,6 @@ const productData = [
         description: "Contains one (1) 27.3-ounce, 18-count variety pack of REESE'S, HERSHEY'S and KIT KAT Milk Chocolate Assortment Candy Bars",
     },
     {
-        name: "Chicken Salad",
-        price: 15.29,
-        quantity: 13,
-        img: "https://m.media-amazon.com/images/I/81dUtSek22L._SX679_PIbundle-12,TopRight,0,0_AA679SH20_.jpg",
-        description: "DELICIOUS FLAVOR: We get it: everyone has their own favorite chicken salad recipe, but StarKist Chicken Creations Chicken Salad pouches include savory dill relish, crisp celery, red peppers and a unique ingredient—convenience.",
-    },
-    {
         name: "Pistachios",
         price: 6.59,
         quantity: 7,
@@ -111,14 +104,6 @@ const productData = [
         img: "https://m.media-amazon.com/images/I/815pWHOGCOS._SX679_PIbundle-6,TopRight,0,0_AA679SH20_.jpg",
         description: "100% Authentic Thai Rice. No artificial colors, flavors or preservatives",
     },
-    {
-        name: "Beef Jerky",
-        price: 8.81,
-        quantity: 40,
-        img: "https://m.media-amazon.com/images/I/81C1mq5cxnL._SY879_.jpg",
-        description: "GOOD SOURCE OF PROTEIN : Protein is an essential part of your diet and Jack Link's Beef Jerky is a delicious way to get more every day. With 10g of protein and 80 calories per serving, it's a must-have snack to help keep you satisfied",
-    },
-
 ]
 
 module.exports = productData;
