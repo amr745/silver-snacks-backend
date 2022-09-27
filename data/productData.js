@@ -104,6 +104,13 @@ const productData = [
         img: "https://m.media-amazon.com/images/I/815pWHOGCOS._SX679_PIbundle-6,TopRight,0,0_AA679SH20_.jpg",
         description: "100% Authentic Thai Rice. No artificial colors, flavors or preservatives",
     },
+    {
+        name: "Vitamins",
+        price: 45,
+        quantity: 21,
+        img: "https://m.media-amazon.com/images/I/81tKe0JpqYL._AC_SX679_.jpg",
+        description: "GREAT TASTING LONG GRAIN- With premium quality, fluffy texture, and naturally authentic like flavor that's been aged for 2 years, Himalayan Basmati rice is widely regarded as the finest rice in the world.",
+    },
 ]
 
 module.exports = productData;
